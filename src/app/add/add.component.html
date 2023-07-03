@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="mx-auto col-10 col-md-8 col-lg-6 p-3">
+    <form #userForm="ngForm" (ngSubmit)="getNewUser(userForm.value)">
+      <div class="form-group">
+        <label for="username">Username:</label><br />
+        <input
+          required
+          ngModel
+          name="userName"
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          #username="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="username.touched && !username.valid"
+        >
+          Username is required
+        </div>
+        <br />
+        <label for="name">Name:</label><br />
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="name"
+          ngModel
+          name="name"
+          #name="ngModel"
+        />
+        <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+          Username is required
+        </div>
+        <br />
+      </div>
+      <label for="email">Email:</label><br />
+      <input
+        email
+        required
+        type="email"
+        class="form-control"
+        id="email"
+        ngModel
+        name="email"
+        #email="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+        <div *ngIf="email.errors!['required']">Email is required</div>
+        <div *ngIf="email.errors!['email']">Email dosen't valid</div>
+      </div>
+
+      <br /><label for="password">Password:</label><br />
+      <input
+        required
+        type="password"
+        class="form-control"
+        id="password"
+        ngModel
+        name="password"
+        #password="ngModel"
+        minlength="6" 
+
+        />
+      <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+        <div *ngIf="password.errors!['required']">password is required</div>
+        <div *ngIf="password.errors!['minlength']">password must be 6 chars</div>
+      </div>
+      <br />
+      <label for="confirmPassword">Confirm Password:</label><br />
+      <input
+        required
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        ngModel
+        name="confirmPassword"
+        #confirmPassword="ngModel"
+        pattern="{{password.value}}"        
+      />
+      <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+        <div *ngIf="confirmPassword.errors!['required']">confirmPassword is required</div>
+        <div  *ngIf="confirmPassword.errors!['pattern']">password didn't match</div>
+      </div>
+      <br />
+      <label for="orgnizationId">Orgnization:</label><br />
+      <select
+        ngModel
+        required
+        name="orgnizationId"
+        id="orgnizationId"
+        class="form-select form-select-lg mb-3"
+        aria-label=".form-select-lg example"
+      >
+        <option *ngFor="let org of organizations" value="{{ org.id }}">
+          {{ org.name }}
+        </option>
+      </select>
+      <br />
+      <input
+        class="btn btn-primary"
+        type="submit"
+        value="Add new User"
+        [disabled]="userForm.invalid"
+      />
+      <br />
+    </form>
+  </div>
+</div>
