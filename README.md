@@ -1,5 +1,17 @@
 # UserManagement
 
+system using Angular and .net core API and bootstrap to manage users
+Add, edit users, reset password, view all users in list, search on user by username, name, email.
+
+![1](https://github.com/muhammadnabil9263/user-manahgment/assets/68337132/95ef4eef-c764-475a-bc8b-ae2aa8aa7d1d)
+
+![2](https://github.com/muhammadnabil9263/user-manahgment/assets/68337132/e99b26be-1fec-4681-b443-6eb8c1ea992b)
+
+![3](https://github.com/muhammadnabil9263/user-manahgment/assets/68337132/2c9daaf5-8f2a-4254-a7ca-4f50f77fb8fc)
+
+![4](https://github.com/muhammadnabil9263/user-manahgment/assets/68337132/1c166674-38e3-47e3-a18d-6fdc0e4040a0)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
 ## Development server
